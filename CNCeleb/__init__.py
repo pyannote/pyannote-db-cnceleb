@@ -40,7 +40,7 @@ from pyannote.database.protocol import SpeakerVerificationProtocol
 
 
 class CNCeleb2(SpeakerVerificationProtocol):
-    def trn_iter(self):
+    def train_iter(self):
 
         path = Path(__file__).parent / "data"
         path = path / f"cnceleb2_duration.txt.gz"
@@ -67,18 +67,18 @@ class CNCeleb2(SpeakerVerificationProtocol):
                 "annotated": annotated,
             }
 
-    def dev_iter(self):
+    def development_iter(self):
         raise NotImplementedError("This protocol does not define a development set.")
 
-    def dev_try_iter(self):
+    def development_trial_iter(self):
         raise NotImplementedError(
             "This protocol does not define trials on the development set."
         )
 
-    def tst_iter(self):
+    def test_iter(self):
         raise NotImplementedError("This protocol does not define a test set.")
 
-    def tst_try_iter(self):
+    def test_trial_iter(self):
         raise NotImplementedError(
             "This protocol does not define trials on the test set."
         )
